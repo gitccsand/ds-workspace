@@ -1,0 +1,10 @@
+.classpath
+.project
+.metadata
+.settings
+*.bak
+*/*.class
+*.class
+bin/
+build/
+classes/
