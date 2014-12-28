@@ -84,7 +84,7 @@
     </target>  
       
     <target name="build" depends="prepare" description="编译 java 文件，拷贝 properties 属性配置文件到编译后的路径下">  
-        <javac srcdir="${src.dir}" destdir="${build.dir}" includejavaruntime="true" includeantruntime="false">  
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includejavaruntime="true" includeantruntime="false" debug="true">  
             <classpath refid="classpath"/>  
         </javac>  
         <copy todir="${web.classes.dir}">  

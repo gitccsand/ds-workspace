@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class RPCConsumer {
 		
-	public void consume(String serverIp,int PORT,String arg) throws NoSuchMethodException, SecurityException, UnknownHostException, IOException, ClassNotFoundException{
+	public void consume(String serverIp,int PORT,String arg) throws NoSuchMethodException, SecurityException, UnknownHostException, IOException, ClassNotFoundException, InterruptedException{
 		//接口名称
 				String interfacename = SayHelloSrv.class.getName();
 				
@@ -31,6 +31,8 @@ public class RPCConsumer {
 				output.writeObject(method.getParameterTypes());
 				output.writeObject(arguments);
 				
+				Thread.sleep(100);
+				
 				//从远端读取方法执行结果
 				ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
 				Object result = input.readObject();
@@ -39,7 +41,7 @@ public class RPCConsumer {
 				
 	}
 	
-	public static void main(String[] args) throws UnknownHostException,IOException,SecurityException, NoSuchMethodException, ClassNotFoundException {
+	public static void main(String[] args) throws UnknownHostException,IOException,SecurityException, NoSuchMethodException, ClassNotFoundException, InterruptedException {
 		RPCConsumer consumer = new RPCConsumer();
 		consumer.consume("127.0.0.1", 5678, "hello");
 	}

@@ -33,5 +33,10 @@ public class TestMD5 {
         System.out.println(TestMD5.MD5("9823483984032"));
         System.out.println("炼数成金 摘要：");
         System.out.println(TestMD5.MD5("炼数成金"));
+    	
+//    	 String s = "This is my original string ,it is very good!";
+//    	   String r = "at";
+//    	   s = s.replace("is",r);
+//    	   System.out.println(s);
     }
 }

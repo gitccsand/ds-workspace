@@ -59,17 +59,17 @@ public class ZkConsumer extends RPCConsumer {
 	}
 	
 	//轮询 消费
-	public void polling_consume() throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException{
+	public void polling_consume() throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException, InterruptedException{
 		String serverIp = serverList.iterator().next();
 		super.consume(serverIp, 5678, "polling consume");
 	}
 	//随机 消费
-	public void random_consume() throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException{
+	public void random_consume() throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException, InterruptedException{
 		String serverIp = serverList.get(new Random(0).nextInt(serverList.size()));
 		super.consume(serverIp, 5678, "random consume");		
 	}
 	//源地址哈希 消费
-	public void hash_consume() throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException{
+	public void hash_consume() throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException, InterruptedException{
 		InetAddress addr = InetAddress.getLocalHost();
 		String ip = addr.getHostAddress().toString();
 			
@@ -78,7 +78,7 @@ public class ZkConsumer extends RPCConsumer {
 	}
 	
 
-	public static void main(String[] args) throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException 
+	public static void main(String[] args) throws UnknownHostException, SecurityException, NoSuchMethodException, ClassNotFoundException, IOException, InterruptedException 
 {
 		ZkConsumer consumer = new ZkConsumer();
 		consumer.init();
