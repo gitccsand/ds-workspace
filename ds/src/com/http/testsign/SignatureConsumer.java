@@ -165,12 +165,14 @@ public class SignatureConsumer extends HttpServlet{
 		HttpGet httpGet = new HttpGet(url);
 		httpGet.setHeader("Sign", sign);
 //		System.out.println("Sign:  "+"fasdjfldsfj");
-	
-		//执行请求
-		CloseableHttpResponse response = httpClient.execute(httpGet);
+		System.out.println("----------------------------------------");  
 		System.out.println("httpGet URI:  "+httpGet.getURI());
 		System.out.println("httpGet to String = :  " + httpGet.toString());
 		System.out.println("httpGet header:  "+httpGet.getHeaders("Sign")[0]);
+		System.out.println("----------------------------------------");  
+	
+		//执行请求
+		CloseableHttpResponse response = httpClient.execute(httpGet);
 		
 		
 		//接收响应
@@ -182,7 +184,6 @@ public class SignatureConsumer extends HttpServlet{
         }  
         String responseSign = response.getLastHeader("Sign").getValue();
         System.out.println("Response Header: "+responseSign);  
-        System.out.println("----------------------------------------");
 		
 		byte[] entityBytes = EntityUtils.toByteArray(entity);
 		
@@ -210,8 +211,8 @@ public class SignatureConsumer extends HttpServlet{
 		}
 		
 		if (verify) {
-			System.out.println(new String("Response is :"));
-			System.out.println(new String(entityBytes));
+			System.out.println("Response Entity : "+new String(entityBytes));
+			System.out.println("----------------------------------------");
 		}else{
 			resp.getWriter().write("Response Signatrue verify failed");
 		}
