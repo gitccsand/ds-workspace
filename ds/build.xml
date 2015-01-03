@@ -7,8 +7,8 @@
         <property name="web-inf.dir" value="${web.dir}/WEB-INF"/>  
         <property name="web.lib.dir" value="${web-inf.dir}/lib"/>  
         <property name="web.classes.dir" value="${web-inf.dir}/classes"/>  
-        <property name="tomcat.home" value="F:\lhw\2014\ds\apache-tomcat-8.0.15"/>  
-        <!--property name="tomcat.home" value="F:\ds\apache-tomcat-8.0.15"/-->  
+        <!--property name="tomcat.home" value="F:\lhw\2014\ds\apache-tomcat-8.0.15"/-->  
+        <property name="tomcat.home" value="F:\ds\apache-tomcat-8.0.15"/>  
         <property name="tomcat.lib.home" value="${tomcat.home}/lib"/>  
         <property name="tomcat.webapp.home" value="${tomcat.home}/webapps"/>  
         <property name="webapp.dir" value="${tomcat.webapp.home}/${project.name}"/>  
