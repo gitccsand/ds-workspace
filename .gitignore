@@ -24,3 +24,5 @@ tags
 *.aof
 *.rdb
 lib/
+/Debug/
+.cproject
