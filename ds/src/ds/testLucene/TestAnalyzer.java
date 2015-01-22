@@ -26,8 +26,8 @@ import org.apache.lucene.util.Version;
 public class TestAnalyzer {
 
 	private static String string = "中华人民共和国在1949年建立，从此开始了新中国的伟大篇章。";
-	private static String dataDIR = "F:\\lhw\\2014\\ds\\7\\data";
-	private static String indexDIR = "F:\\lhw\\2014\\ds\\7\\index";
+	private static String dataDIR = "F:\\ds\\7\\data";
+	private static String indexDIR = "F:\\ds\\7\\index";
 	private static Version matchVersion = Version.LATEST; // Substitute desired Lucene version for XY
 	
     public static void Standard_Analyzer(String str) throws Exception{
@@ -137,18 +137,15 @@ public class TestAnalyzer {
 
     public static void main(String[] args) throws Exception{
            String str = string;
-           System.out.println("我们测试的字符串是："+str);
          
-           Standard_Analyzer(str);
-           SmartChinese_Analyzer(str);
+           System.out.println("标准分词：我们测试的字符串是："+str);
+           Standard_Analyzer(str);//一元分词，输出分词结果
+           Standard_Analyzer_index(dataDIR, indexDIR);//创建索引
            
-           Standard_Analyzer_index(dataDIR, indexDIR);
-           SmartCN_Analyzer_index(dataDIR, indexDIR);
+           System.out.println("smartcn分词：我们测试的字符串是："+str);
+           SmartChinese_Analyzer(str);//二元分词，输出分词结果
+           SmartCN_Analyzer_index(dataDIR, indexDIR);//创建索引
      }
-
-	
-	
-
 }
 
 //public static void Standard_Analyzer(String str) throws Exception{
