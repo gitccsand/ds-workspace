@@ -1,4 +1,4 @@
-package sort;
+package alg.sort;
 
 import java.awt.print.Printable;
 import java.util.Arrays;
