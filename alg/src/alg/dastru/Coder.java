@@ -22,18 +22,22 @@ public class Coder {
 			remain_time = projs[i] - cur_time;
 			
 			if(remain_time>=DI){
+				
 				x=0;
-				use_time = DI;
+				
 			}else{
+				
 				x = (long) Math.ceil((DI-remain_time)/AI);
-				use_time= (long) Math.ceil(DI - AI * x);
 			}			
-			System.out.println("project "+projs[i]+" cost $"+ x + " and last " + use_time +" days");
+			
+			use_time= (long) (DI - AI * x);
+			System.out.println(projs[i]+" cost $"+ x + " and last " + use_time +" days");
 			
 			cur_time += use_time;
-			total_spend += x;
+			total_spend += x;			
 			i++;
 		}
+		
 		System.out.println("all puojects are completed !");
 		System.out.println("current time is "+ cur_time + " days and total spend is $"+ total_spend);
 
