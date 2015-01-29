@@ -7,15 +7,9 @@
 //============================================================================
 
 #include <iostream>
-#include <queue>
-#include <string>
-#include <map>
 using namespace std;
 
-queue<long> nque[1000];
-queue<int> ns[2];
-
 int main() {
-	cout << "Hello World!!!" << endl; // prints Hello World!!!
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;
 }
