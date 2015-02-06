@@ -7,14 +7,15 @@
         <property name="web-inf.dir" value="${web.dir}/WEB-INF"/>  
         <property name="web.lib.dir" value="${web-inf.dir}/lib"/>  
         <property name="web.classes.dir" value="${web-inf.dir}/classes"/>  
-        <!--property name="tomcat.home" value="F:\lhw\2014\ds\apache-tomcat-8.0.15"/-->  
-        <property name="tomcat.home" value="F:\ds\apache-tomcat-8.0.15"/>  
+        <property name="tomcat.home" value="F:\lhw\2014\ds\apache-tomcat-8.0.15"/>  
+        <!--<property name="tomcat.home" value="F:\ds\apache-tomcat-8.0.15"/> -->  
         <property name="tomcat.lib.home" value="${tomcat.home}/lib"/>  
         <property name="tomcat.webapp.home" value="${tomcat.home}/webapps"/>  
         <property name="webapp.dir" value="${tomcat.webapp.home}/${project.name}"/>  
         <property name="webapp.web-inf.dir" value="${tomcat.webapp.home}/${project.name}/WEB-INF"/>  
         <property name="webapp.classes.dir" value="${tomcat.webapp.home}/${project.name}/WEB-INF/classes"/>  
     	
+        <property name="memcache.lib.home" value="F:\lhw\2014\ds\java-lib\java_memcached_client"/>  
           
         <!--property name="packages" value="ant.*"/>
         <property name="build.src" value="${basedir}/AntBuild/${project.name}/src"></property>  
@@ -37,11 +38,15 @@
                 <include name="**/*.jar"/>  
                 <include name="*.jar"/>  
             </fileset>  
+            <fileset dir="${memcache.lib.home}">  
+                <include name="**/*.jar"/>  
+                <include name="*.jar"/>  
+            </fileset>  
         </path>      	
     	
     	<echo message="The project name is: ${project.name}"/>
     	<echo message="The base dir is: ${basedir}"/>
-    	<echo message="The base dir is: ${webapp.classes.dir}"/>
+    	<echo message="The tomcat dir is: ${webapp.classes.dir}"/>
 	
     <target name="init" description="设置初始化打 war 包需要的路径变量">  
     	
@@ -84,7 +89,7 @@
     </target>  
       
     <target name="build" depends="prepare" description="编译 java 文件，拷贝 properties 属性配置文件到编译后的路径下">  
-        <javac srcdir="${src.dir}" destdir="${build.dir}" includejavaruntime="true" includeantruntime="false" debug="true">  
+        <javac srcdir="${src.dir}" includes="com/http/**/*" destdir="${build.dir}" includejavaruntime="true" includeantruntime="false" debug="true">  
             <classpath refid="classpath"/>  
         </javac>  
         <copy todir="${web.classes.dir}">  
