@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 import java.io.*;
-@WebServlet("/Concurrent.do")
+@WebServlet("/Concurrent_test.do")
 public class Concurrent_Test extends HttpServlet {
 	
 	PrintWriter output;
